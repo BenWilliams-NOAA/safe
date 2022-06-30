@@ -1,0 +1,4 @@
+language:
+  label:
+    fig: !expr function(x) sprintf("Figure %s. " , paste0(params$chapter, '.',x))
+    tab: !expr function(x) sprintf("Table %s. " , paste0(params$chapter, '.',x))

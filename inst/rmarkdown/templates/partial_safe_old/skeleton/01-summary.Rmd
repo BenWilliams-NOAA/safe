@@ -1,0 +1,110 @@
+# Executive Summary
+
+## Summary of Changes in Assessment Inputs
+
+List of changes (if any) in the input data, including estimated catches assumed for the current year and projected catches for current year + 1 and current year + 2.
+
+List of changes (if any) in the assessment methodology. 
+**This is one of the most important sections of the SAFE report**. 
+Common mistakes in this section include: 1) listing something that *has not* changed, and 2) not listing something that *has* changed.
+
+
+## Summary of Results
+
+List of changes (if any) in the input data, including estimated catches assumed for the current year and projected catches for current year + 1 and current year + 2.
+List of changes (if any) in the assessment methodology. This is one of the most important sections of the SAFE report.  Common mistakes in this section include: 1) listing something that has not changed, and 2) not listing something that has changed.
+
+```{r, child= "01a-main_table.Rmd", eval = F}
+
+```
+
+
+Text table of area apportionments (if any) for the recommended one- and two-year ahead ABCs and OFLs, with a brief description of the apportionment methodology.
+
+```{r, child= "01b-apportionment.Rmd", eval = F}
+
+```
+
+
+If so are so kind as to provide tables for the plan team, place them here
+
+```{r, child= "01c-plan_team.Rmd", eval = F}
+
+```
+
+## Area Allocation of Harvest
+
+The following table shows the recommended ABC apportionment for `r year+1` and `r year+2`. 
+The apportionment percentages are the same as in the last full assessment. 
+Please refer to the 2020 full stock assessment report [@Fenske2020] for information regarding the apportionment rationale for GOA dusky rockfish.
+
+\begin{center}
+\begin{tabular}{ lcccc}
+\hline
+
+ & Western & Central & Eastern & Total \\
+ Area Apportionment & 5\% & 84.4 \% & 10.6\% & 100\% \\
+ \hline
+ 2022 Area ABC (t) & 269 & 4,534 & 569 & 5,372 \\
+ 2022 OFL (t) &  & & & 8,000 \\
+ 2023 Area ABC (t) & 259 & 4,373 & 549 & 5,181 \\
+ 2023 OFL (t) &  & & & 8,146 \\
+
+\hline
+\end{tabular}
+\end{center}
+
+Amendment 41 prohibited trawling in the Eastern area east of 140° W longitude. 
+The ratio of biomass still obtainable in the W. Yakutat area (between 147° W and 140° W) is 0.75. 
+This results in the following apportionment to the W. Yakutat area:
+
+
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+
+ & W. Yakutat & E. Yakutat/Southeast \\
+ \hline
+ 2022 Area ABC (t) & 427 & 142 \\
+ 2023 Area ABC (t) & 412 & 137 \\
+
+\hline
+
+\end{tabular}
+\end{center}
+
+\allsectionsfont{\raggedright}
+## Summaries for Plan Team
+
+\begin{center}
+\begin{tabular}{lcccccc}
+\hline
+
+Stock    & Year & Biomass$^1$ & OFL & ABC & TAC & Catch \\
+\hline
+         & 2020 & 54,626 & 4,492 & 3,676 & 3,676 & 2,198\\
+Dusky    & 2021 & 97,702 & 8,655 & 5,389 & 5,389 & 2,902$^2$\\
+Rockfish & 2022 & 97,767 & 8000 & 5,372 & & \\
+         & 2023 & 95,682 & 8,146 & 5,181 & & \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lr|rrrr|rr|rr}
+\hline
+          &           & \multicolumn{4}{c}{2021} & \multicolumn{2}{|c}{2022} & \multicolumn{2}{|c}{2023}  \\ 
+Stock & Area      & OFL & ABC & TAC & Catch$^2$ & OFL & ABC & OFL & ABC \\
+\hline
+      & W         &      & 270   & 270   & 144   &       & 269   &       & 259 \\
+Dusky & C         &      & 4,548 & 4,548 & 2,727 &       & 4,534 &       & 4,373 \\
+Rockfish  & WYAK &      & 468   & 468   & 30    &       & 427   &       & 412 \\
+     & EYAK/SEO   &      & 103   & 103   & 1     &       & 142   &       & 137 \\
+     & Total     & 8,655 & 5,389 & 5,389 & 2,902 & `r ofl` & 5,372 & 8,146  & 5,181 \\     
+     
+\hline
+\multicolumn{10}{l}{\footnotesize $^1$Total biomass (age 4+) estimates from age-structured model.} \\
+\multicolumn{10}{l}{\footnotesize $^2$Current as of October 22, 2021. Source: NMFS Alaska Regional Office Catch Accounting System} \\
+\multicolumn{10}{l}{\footnotesize via the AKFIN database (http://www.akfin.org).} \\
+\end{tabular}
+\end{center}
