@@ -31,4 +31,4 @@ appropriate for your needs.
 knitr::include_graphics(here::here('man', 'figures', 'README-template.PNG'))
 ```
 
-<img src="man/figures/README-template.PNG" width="100%" />
+<img src="man/figures/README-template.PNG" width="80%" />
