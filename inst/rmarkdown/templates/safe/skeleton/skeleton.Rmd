@@ -1,11 +1,11 @@
 ---
 params:
   chapter: 10
-  species: "Northern rockfish"
+  species: "northern rockfish"
   species_complex: "no"
   area: "Gulf of Alaska"
   tier: 3
-  dft_title: "`r params$chapter`. Assessment of the `r params$species` stock in the `r params$area`"
+  dft_title: "`r params$chapter`. Assessment of the `r tools::toTitleCase(params$species)` stock in the `r params$area`"
 
 author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
 date: "November 2022"
