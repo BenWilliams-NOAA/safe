@@ -5,7 +5,7 @@ params:
   species_complex: "yes"
   area: "Gulf of Alaska"
   tier: 3
-Sauthor: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
+author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
 date: "November 2022"
 
 # don't do anything below this line unless you are cool with the consequences
