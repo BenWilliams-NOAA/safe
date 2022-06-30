@@ -1,8 +1,0 @@
-```{r, child= "02a-main-table.Rmd", eval = F}
-
-```
-
-
-```{r, child= "02b-apportionment.Rmd", eval = F}
-
-```
