@@ -1,4 +1,4 @@
-name: safe
+name: partial_safe
 description: full safe document
 create_dir: true
 

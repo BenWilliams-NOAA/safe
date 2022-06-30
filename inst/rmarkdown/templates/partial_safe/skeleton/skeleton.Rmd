@@ -77,32 +77,6 @@ c3 = 2884 # proj catch year + 2
 ```{r, child="01-summary.Rmd", eval = T}
 ```
 
-```{r, child="02-responses.Rmd", eval = T}
-```
-
-```{r, child="03-intro.Rmd", eval = T}
-```
-
-```{r, child="04-fishery.Rmd", eval = T}
-```
-
-```{r, child="05-data.Rmd", eval = T}
-```
-
-```{r, child="06-model.Rmd", eval = T}
-```
-
-```{r, child="07-results.Rmd", eval = T}
-```
-
-```{r, child="08-abc.Rmd", eval = T}
-```
-
-```{r, child="09-ecosystem.Rmd", eval = T}
-```
-
-```{r, child="10-gaps.Rmd", eval = T}
-```
 \pagebreak
 \allsectionsfont{\centering}
 # References
@@ -114,8 +88,8 @@ c3 = 2884 # proj catch year + 2
 ```{r, child="12-figures.Rmd", eval = T}
 ```
 
-```{r, child="13-append_a.Rmd", eval = T}
+```{r, child="13-append_a.Rmd", eval = F}
 ```
 
-```{r, child="14-append_vast.Rmd", eval = T}
+```{r, child="14-append_vast.Rmd", eval = F}
 ```
