@@ -10,6 +10,7 @@ params:
 author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
 date: "November 2022"
 
+# don't do anything below this line unless you are cool with the consequences
 output:
   bookdown::word_document2:
      reference_docx: "template.docx"
