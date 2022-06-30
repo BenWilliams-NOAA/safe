@@ -27,4 +27,8 @@ name and the suite of .Rmd files will be placed in the folder. \*Note
 that there is also one called `partial_safe`, use whichever is
 appropriate for your needs.
 
-![](man/figures/template.png)<!-- -->
+``` r
+knitr::include_graphics(here::here('man', 'figures', 'README-template.PNG'))
+```
+
+<img src="man/figures/README-template.PNG" width="100%" />
