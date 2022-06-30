@@ -1,0 +1,126 @@
+---
+params:
+  chapter: 10
+  species: "Northern rockfish"
+  species_complex: "no"
+  area: "Gulf of Alaska"
+  tier: 3
+  dft_title: "`r params$chapter`. Assessment of the `r params$species` stock in the `r params$area`"
+
+author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
+date: "November 2022"
+
+output:
+  bookdown::word_document2:
+     reference_docx: "template.docx"
+     toc: false
+     number_sections: false
+     css: "styles.css"
+     pandoc_args:  
+       - '--lua-filter=scholarly-metadata.lua'
+       - '--lua-filter=author-info-blocks.lua'
+
+always_allow_html: true        
+fontsize: 11pt
+geometry:
+  - top=1in
+  - bottom=1in
+  - left=1in
+  - right=1in     
+fig_caption: true
+bibliography: "safe_bibby.bib"
+csl: "fishfish.csl"
+
+---
+
+```{r setup, include=FALSE, echo = FALSE}
+# remotes::install_github("crsh/rmdfiltr")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.pos = "!h", out.extra = "")
+knitr::opts_knit$set(eval.after = "fig.cap")
+x = 1
+sprintf("Figure %s. " , paste0(params$chapter, '.',x))
+```
+
+```{r}
+if(params$species_complex=="no"){
+   title = paste0(params$chapter, ". Assessment of the ", stringr::str_to_title(params$species), " stock in the ", params$area)
+  } else {
+    title = paste0(params$chapter, ". Assessment of the ", stringr::str_to_title(params$species), " stock complex in the ", params$area)  
+  }
+
+
+```
+
+---
+title: `r title`
+---
+
+```{r load, warning=F, message=F}
+# load
+library(safe)
+# globals
+species = params$species
+year = 2022
+date = 'October 22, 2022'
+model = "base"
+end_proj = year + 15
+best_f = 0.0641 # from the best_f function in groundfishr package
+ofl = 8000 # placeholder while i figure things out
+
+# todo: read from proj output
+c1 = 2842 # estimated catch in current year
+c2 = 3489 # proj catch year + 1
+c3 = 2884 # proj catch year + 2
+# todo: build a function/switch to auto run the tier(a/b) - also for overfishing/overfished
+```
+
+```{r, child="01-summary.Rmd", eval = T}
+```
+
+
+```{r, child="02-status.Rmd", eval = F}
+```
+
+
+```{r, child="03-responses.Rmd", eval = T}
+```
+
+```{r, child="04-intro.Rmd", eval = T}
+```
+
+```{r, child="05-fishery.Rmd", eval = T}
+```
+
+```{r, child="06-data.Rmd", eval = T}
+```
+
+```{r, child="07-model.Rmd", eval = T}
+```
+
+```{r, child="08-results.Rmd", eval = T}
+```
+
+```{r, child="09-abc.Rmd", eval = T}
+```
+
+```{r, child="10-ecosystem.Rmd", eval = T}
+```
+
+```{r, child="11-gaps.Rmd", eval = T}
+```
+\pagebreak
+\allsectionsfont{\centering}
+# References
+<div id="refs"></div>
+
+```{r, child="12-tables.Rmd", eval = T}
+```
+
+```{r, child="13-figures.Rmd", eval = T}
+```
+
+```{r, child="14-append_a.Rmd", eval = T}
+```
+
+```{r, child="15-append_vast.Rmd", eval = T}
+```

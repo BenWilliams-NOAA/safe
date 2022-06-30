@@ -1,0 +1,35 @@
+# Executive Summary
+
+## Summary of Changes in Assessment Inputs
+
+List of changes (if any) in the input data, including estimated catches assumed for the current year and projected catches for current year + 1 and current year + 2.
+
+List of changes (if any) in the assessment methodology. 
+**This is one of the most important sections of the SAFE report**. 
+Common mistakes in this section include: 1) listing something that *has not* changed, and 2) not listing something that *has* changed.
+
+
+## Summary of Results
+
+List of changes (if any) in the input data, including estimated catches assumed for the current year and projected catches for current year + 1 and current year + 2.
+List of changes (if any) in the assessment methodology. This is one of the most important sections of the SAFE report.  Common mistakes in this section include: 1) listing something that has not changed, and 2) not listing something that has changed.
+
+```{r, child= "01a-main_table.Rmd", eval = T}
+
+```
+
+
+Text table of area apportionments (if any) for the recommended one- and two-year ahead ABCs and OFLs, with a brief description of the apportionment methodology.
+
+```{r, child= "01b-apportionment.Rmd", eval = T}
+
+```
+
+
+If so are so kind as to provide tables for the plan team, place them here
+
+```{r, child= "01c-plan_team.Rmd", eval = T}
+
+```
+
+
