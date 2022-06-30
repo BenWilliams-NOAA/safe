@@ -5,8 +5,7 @@ params:
   species_complex: "yes"
   area: "Gulf of Alaska"
   tier: 3
-
-author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
+Sauthor: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
 date: "November 2022"
 
 # don't do anything below this line unless you are cool with the consequences
@@ -43,9 +42,9 @@ sprintf("Figure %s. " , paste0(params$chapter, '.',x))
 
 ```{r}
 if(params$species_complex=="no"){
-   title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock in the ", params$area)
+   title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " Stock in the ", params$area)
   } else {
-    title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock complex in the ", params$area)  
+    title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " Stock Complex in the ", params$area)  
   }
 
 

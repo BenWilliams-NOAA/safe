@@ -43,9 +43,9 @@ sprintf("Figure %s. " , paste0(params$chapter, '.',x))
 
 ```{r}
 if(params$species_complex=="no"){
-   title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock in the ", params$area)
+   title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " Stock in the ", params$area)
   } else {
-    title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock complex in the ", params$area)  
+    title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " Stock complex in the ", params$area)  
   }
 
 
