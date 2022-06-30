@@ -1,11 +1,10 @@
 ---
 params:
   chapter: 10
-  species: "northern rockfish"
-  species_complex: "no"
+  species: "rougheye and black spotted rockfish"
+  species_complex: "yes"
   area: "Gulf of Alaska"
   tier: 3
-  dft_title: "`r params$chapter`. Assessment of the `r tools::toTitleCase(params$species)` stock in the `r params$area`"
 
 author: "Benjamin C. Williams, Peter-John F. Hulson, Chris R. Lunsford"
 date: "November 2022"
@@ -44,9 +43,9 @@ sprintf("Figure %s. " , paste0(params$chapter, '.',x))
 
 ```{r}
 if(params$species_complex=="no"){
-   title = paste0(params$chapter, ". Assessment of the ", stringr::str_to_title(params$species), " stock in the ", params$area)
+   title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock in the ", params$area)
   } else {
-    title = paste0(params$chapter, ". Assessment of the ", stringr::str_to_title(params$species), " stock complex in the ", params$area)  
+    title = paste0(params$chapter, ". Assessment of the ", tools::toTitleCase(params$species), " stock complex in the ", params$area)  
   }
 
 
