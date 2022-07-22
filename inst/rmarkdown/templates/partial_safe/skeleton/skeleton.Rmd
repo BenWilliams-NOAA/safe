@@ -77,6 +77,9 @@ c3 = 2884 # proj catch year + 2
 ```{r, child="01-summary.Rmd", eval = T}
 ```
 
+```{r, child="02-responses.Rmd", eval = T}
+```
+
 \pagebreak
 \allsectionsfont{\centering}
 # References
