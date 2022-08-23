@@ -70,7 +70,7 @@ The executive summary contains the appropriate one- and two-year ahead projectio
 
 
 
-## Risk Table amnd ABC recommendation
+## Risk Table and ABC recommendation
 
 
 The SSC in its December 2018 minutes recommended that all assessment authors use the risk table when determining whether to recommend an ABC lower than the maximum permissible. The following template is used to complete the risk table:
