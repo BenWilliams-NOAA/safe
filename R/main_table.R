@@ -118,8 +118,8 @@ main_table <- function(data, year, tier, c1, c2, c3){
     tier = "1a"
 
     tbl %>%
-      footnote(i=2, j=4:5, part = "header", ref_symbols = "*",
-               value = as_paragraph(as_chunk(paste0("Projections are based on an estimated catch of ",
+      flextable::footnote(i=2, j=4:5, part = "header", ref_symbols = "*",
+               value = flextable::as_paragraph(as_chunk(paste0("Projections are based on an estimated catch of ",
                                                     prettyNum(c1, big.mark = ","), " t for ", year,
                                                     " and estimates of ",
                                                     prettyNum(c2, big.mark = ","),
@@ -128,37 +128,37 @@ main_table <- function(data, year, tier, c1, c2, c3){
                                                     " t used in place of maximum permissible ABC for ",
                                                     year+1, " and ", year+2, "."))),
                sep = ".") %>%
-      compose(i = 2, j = 2:5, value = as_paragraph(tier), part = "body") %>%
-      compose(i = 4, j = 1, value = as_paragraph("F", as_sub("OFL")), part = "body") %>%
-      compose(i = 5, j = 1, value = as_paragraph(as_i("max"),"F", as_sub("ABC")), part = "body") %>%
-      compose(i = 6, j = 1, value = as_paragraph("F", as_sub("ABC")), part = "body") %>%
-      compose(i = 7, j = 1, value = as_paragraph(as_i("max"),"ABC (t)"), part = "body") %>%
-      compose(i = 13, j = 1, value = as_paragraph("")) %>%
-      compose(i = 13, j = 2:3,
-              value = as_paragraph( "As determined " , as_i("last"), " year for:")) %>%
-      compose(i = 13, j = 4:5,
-              value = as_paragraph( "As determined " , as_i("this"), " year for:")) %>%
-      compose(i = 14, j = 2,
-              value = as_paragraph(as_chunk(as.character(year - 1)))) %>%
-      compose(i = 14, j = 3:4,
-              value = as_paragraph(as_chunk(as.character(year)))) %>%
-      compose(i = 14, j = 5,
-              value = as_paragraph(as_chunk(as.character(year + 1)))) %>%
-      compose(i=15, j=c(2,4), value = as_paragraph("No")) %>%
-      compose(i=15, j=c(3,5), value = as_paragraph("n/a")) %>%
-      compose(i=16:17, j=c(3,5), value = as_paragraph("No")) %>%
-      compose(i=16:17, j=c(2,4), value = as_paragraph("n/a")) %>%
-      colformat_double(i = c(3:7, 10:12), j = 2:5, big.mark=",", digits = 0, na_str = "N/A") %>%
-      merge_h(i=13, part = "body") %>%
-      align(align = "center", part = "header") %>%
-      align(j=2:5, align = "center", part = "body") %>%
-      align(j = 1, part = "header", align="left") %>%
-      bold(i = 2, j = 1, part = "header") %>%
-      bold(i = 15, j = 1) %>%
-      hline(i=12) %>%
-      hline(i=14) %>%
-      hline(i=17) %>%
-      fix_border_issues()
+      flextable::compose(i = 2, j = 2:5, value = flextable::as_paragraph(tier), part = "body") %>%
+      flextable::compose(i = 4, j = 1, value = flextable::as_paragraph("F", flextable::as_sub("OFL")), part = "body") %>%
+      flextable::compose(i = 5, j = 1, value = flextable::as_paragraph(flextable::as_i("max"),"F", flextable::as_sub("ABC")), part = "body") %>%
+      flextable::compose(i = 6, j = 1, value = flextable::as_paragraph("F", flextable::as_sub("ABC")), part = "body") %>%
+      flextable::compose(i = 7, j = 1, value = flextable::as_paragraph(flextable::as_i("max"),"ABC (t)"), part = "body") %>%
+      flextable::compose(i = 13, j = 1, value = flextable::as_paragraph("")) %>%
+      flextable::compose(i = 13, j = 2:3,
+                        value = flextable::as_paragraph( "As determined " , flextable::as_i("last"), " year for:")) %>%
+      flextable::compose(i = 13, j = 4:5,
+                        value = flextable::as_paragraph( "As determined " , flextable::as_i("this"), " year for:")) %>%
+      flextable::compose(i = 14, j = 2,
+                        value = flextable::as_paragraph(flextable::as_chunk(as.character(year - 1)))) %>%
+      flextable::compose(i = 14, j = 3:4,
+                        value = flextable::as_paragraph(flextable::as_chunk(as.character(year)))) %>%
+      flextable::compose(i = 14, j = 5,
+                         value = flextable::as_paragraph(flextable::as_chunk(as.character(year + 1)))) %>%
+      flextable::compose(i=15, j=c(2,4), value = flextable::as_paragraph("No")) %>%
+      flextable::compose(i=15, j=c(3,5), value = flextable::as_paragraph("n/a")) %>%
+      flextable::compose(i=16:17, j=c(3,5), value = flextable::as_paragraph("No")) %>%
+      flextable::compose(i=16:17, j=c(2,4), value = flextable::as_paragraph("n/a")) %>%
+      flextable::colformat_double(i = c(3:7, 10:12), j = 2:5, big.mark=",", digits = 0, na_str = "N/A") %>%
+      flextable::merge_h(i=13, part = "body") %>%
+      flextable::align(align = "center", part = "header") %>%
+      flextable::align(j=2:5, align = "center", part = "body") %>%
+      flextable::align(j = 1, part = "header", align="left") %>%
+      flextable::bold(i = 2, j = 1, part = "header") %>%
+      flextable::bold(i = 15, j = 1) %>%
+      flextable::hline(i=12) %>%
+      flextable::hline(i=14) %>%
+      flextable::hline(i=17) %>%
+      flextable::fix_border_issues()
   } else if(tier == 5){
 
     tier = "5"
@@ -195,29 +195,29 @@ main_table <- function(data, year, tier, c1, c2, c3){
     tier = "6"
 
     tbl %>%
-      compose(i = 1, j = 2:5, value = as_paragraph(tier), part = "body") %>%
-      compose(i = 3, j = 1, value = as_paragraph(as_i("max"),"ABC (t)"), part = "body") %>%
-      compose(i = 5, j = 1, value = as_paragraph("")) %>%
-      compose(i = 5, j = 2:3,
-              value = as_paragraph( "As determined " , as_i("last"), " year for:")) %>%
-      compose(i = 5, j = 4:5,
-              value = as_paragraph( "As determined " , as_i("this"), " year for:")) %>%
-      compose(i = 6, j = 2,
-              value = as_paragraph(as_chunk(as.character(year - 1)))) %>%
-      compose(i = 6, j = 3:4,
-              value = as_paragraph(as_chunk(as.character(year)))) %>%
-      compose(i = 6, j = 5,
-              value = as_paragraph(as_chunk(as.character(year + 1)))) %>%
-      compose(i=7, j=c(2,4), value = as_paragraph("No")) %>%
-      compose(i=7, j=c(3,5), value = as_paragraph("n/a")) %>%
-      colformat_double(i = c(2:4), j = 2:5, big.mark=",", digits = 0, na_str = "N/A") %>%
-      merge_h(i=5, part = "body") %>%
-      align(align = "center", part = "header") %>%
-      align(j=2:5, align = "center", part = "body") %>%
-      align(j = 1, part = "header", align="left") %>%
-      hline(i=4) %>%
-      hline(i=6) %>%
-      hline(i=7) %>%
-      fix_border_issues()
+      flextable::compose(i = 1, j = 2:5, value = flextable::as_paragraph(tier), part = "body") %>%
+      flextable::compose(i = 3, j = 1, value = flextable::as_paragraph(flextable::as_i("max"),"ABC (t)"), part = "body") %>%
+      flextable::compose(i = 5, j = 1, value = flextable::as_paragraph("")) %>%
+      flextable::compose(i = 5, j = 2:3,
+              value = flextable::as_paragraph( "As determined " , flextable::as_i("last"), " year for:")) %>%
+      flextable::compose(i = 5, j = 4:5,
+              value = flextable::as_paragraph( "As determined " , flextable::as_i("this"), " year for:")) %>%
+      flextable::compose(i = 6, j = 2,
+              value = flextable::as_paragraph(flextable::as_chunk(as.character(year - 1)))) %>%
+      flextable::compose(i = 6, j = 3:4,
+              value = as_paragraph(flextable::as_chunk(as.character(year)))) %>%
+      flextable::compose(i = 6, j = 5,
+              value = flextable::as_paragraph(flextable::as_chunk(as.character(year + 1)))) %>%
+      flextable::compose(i=7, j=c(2,4), value = flextable::as_paragraph("No")) %>%
+      flextable::compose(i=7, j=c(3,5), value = flextable::as_paragraph("n/a")) %>%
+      flextable::colformat_double(i = c(2:4), j = 2:5, big.mark=",", digits = 0, na_str = "N/A") %>%
+      flextable::merge_h(i=5, part = "body") %>%
+      flextable::align(align = "center", part = "header") %>%
+      flextable::align(j=2:5, align = "center", part = "body") %>%
+      flextable::align(j = 1, part = "header", align="left") %>%
+      flextable::hline(i=4) %>%
+      flextable::hline(i=6) %>%
+      flextable::hline(i=7) %>%
+      flextable::fix_border_issues()
   }
 }
