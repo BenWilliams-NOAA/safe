@@ -36,9 +36,6 @@ csl: "fishfish.csl"
 ```{r setup, include=FALSE, echo = FALSE}
 # remotes::install_github("crsh/rmdfiltr")
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.pos = "!h", out.extra = "")
-knitr::opts_knit$set(eval.after = "fig.cap")
-x = 1
-sprintf("Figure %s. " , paste0(params$chapter, '.',x))
 ```
 
 ```{r}
