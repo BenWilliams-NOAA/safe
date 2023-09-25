@@ -104,6 +104,7 @@ main_table <- function(data, year, tier, c1, c2, c3){
                                   big.mark=",", digits = 0, na_str = "N/A") %>%
       flextable::merge_h(i=14, part = "body") %>%
       flextable::bold(i = 15, j = 1) %>%
+      flextable::bold(i = c(11,13), j = 4) %>%
       flextable::hline(i=13) %>%
       flextable::hline(i=15) %>%
       flextable::hline(i=18) %>%
