@@ -195,19 +195,19 @@ main_table <- function(data, year, tier, c1, c2, c3){
     tier = "6"
 
     tbl %>%
-      flextable::compose(i = 1, j = 2:5, value = flextable::as_paragraph(tier), part = "body") %>%
+      flextable::compose(i = 1, j = 2:5, value = flextable::as_paragraph(as.character(tier)), part = "body") %>%
       flextable::compose(i = 3, j = 1, value = flextable::as_paragraph(flextable::as_i("max"),"ABC (t)"), part = "body") %>%
       flextable::compose(i = 5, j = 1, value = flextable::as_paragraph("")) %>%
       flextable::compose(i = 5, j = 2:3,
-              value = flextable::as_paragraph( "As determined " , flextable::as_i("last"), " year for:")) %>%
+                         value = flextable::as_paragraph( "As determined " , flextable::as_i("last"), " year for:")) %>%
       flextable::compose(i = 5, j = 4:5,
-              value = flextable::as_paragraph( "As determined " , flextable::as_i("this"), " year for:")) %>%
+                         value = flextable::as_paragraph( "As determined " , flextable::as_i("this"), " year for:")) %>%
       flextable::compose(i = 6, j = 2,
-              value = flextable::as_paragraph(flextable::as_chunk(as.character(year - 1)))) %>%
+                         value = flextable::as_paragraph(flextable::as_chunk(as.character(year - 1)))) %>%
       flextable::compose(i = 6, j = 3:4,
-              value = as_paragraph(flextable::as_chunk(as.character(year)))) %>%
+                         value = flextable::as_paragraph(flextable::as_chunk(as.character(year)))) %>%
       flextable::compose(i = 6, j = 5,
-              value = flextable::as_paragraph(flextable::as_chunk(as.character(year + 1)))) %>%
+                         value = flextable::as_paragraph(flextable::as_chunk(as.character(year + 1)))) %>%
       flextable::compose(i=7, j=c(2,4), value = flextable::as_paragraph("No")) %>%
       flextable::compose(i=7, j=c(3,5), value = flextable::as_paragraph("n/a")) %>%
       flextable::colformat_double(i = c(2:4), j = 2:5, big.mark=",", digits = 0, na_str = "N/A") %>%
