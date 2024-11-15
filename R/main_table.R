@@ -6,10 +6,22 @@
 #' @param c1 estimated catch current year
 #' @param c2 proj catch year + 1
 #' @param c3 proj catch year + 2
+#' @param catch_text change to default catch description to user specified footnote
 #'
 #' @export main_table
 #'
-main_table <- function(data, year, tier, c1, c2, c3){
+main_table <- function(data, year, tier, c1, c2, c3, catch_text = NULL){
+
+  if(is.null(catch_text)) {
+    catch_text = paste0("Projections are based on an estimated catch of ",
+                 prettyNum(c1, big.mark = ","), " t for ", year,
+                 " and estimates of ",
+                 prettyNum(c2, big.mark = ","),
+                 " t and ",
+                 prettyNum(c3, big.mark = ","),
+                 " t used in place of maximum permissible ABC for ",
+                 year+1, " and ", year+2, ".")
+  }
 
   flextable::flextable(data) %>%
     flextable::font(fontname = "Times New Roman", part = "all") %>%
@@ -53,14 +65,7 @@ main_table <- function(data, year, tier, c1, c2, c3){
     flextable::font(
       flextable::footnote(tbl, i=2, j=4:5, part = "header", ref_symbols = "*",
                           value = flextable::as_paragraph(
-                            flextable::as_chunk(paste0("Projections are based on an estimated catch of ",
-                                                       prettyNum(c1, big.mark = ","), " t for ", year,
-                                                       " and estimates of ",
-                                                       prettyNum(c2, big.mark = ","),
-                                                       " t and ",
-                                                       prettyNum(c3, big.mark = ","),
-                                                       " t used in place of maximum permissible ABC for ",
-                                                       year+1, " and ", year+2, "."))),
+                            flextable::as_chunk(catch_text)),
                           sep = "."),
       fontname = "Times New Roman",
       part = "all") %>%
@@ -120,14 +125,8 @@ main_table <- function(data, year, tier, c1, c2, c3){
 
     tbl %>%
       flextable::footnote(i=2, j=4:5, part = "header", ref_symbols = "*",
-               value = flextable::as_paragraph(as_chunk(paste0("Projections are based on an estimated catch of ",
-                                                    prettyNum(c1, big.mark = ","), " t for ", year,
-                                                    " and estimates of ",
-                                                    prettyNum(c2, big.mark = ","),
-                                                    " t and ",
-                                                    prettyNum(c3, big.mark = ","),
-                                                    " t used in place of maximum permissible ABC for ",
-                                                    year+1, " and ", year+2, "."))),
+                          value = flextable::as_paragraph(
+                            flextable::as_chunk(catch_text)),
                sep = ".") %>%
       flextable::compose(i = 2, j = 2:5, value = flextable::as_paragraph(tier), part = "body") %>%
       flextable::compose(i = 4, j = 1, value = flextable::as_paragraph("F", flextable::as_sub("OFL")), part = "body") %>%
