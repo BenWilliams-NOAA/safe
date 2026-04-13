@@ -25,11 +25,3 @@ Text table of area apportionments (if any) for the recommended one- and two-year
 
 ```
 
-
-If so are so kind as to provide tables for the plan team, place them here
-
-```{r, child= "01c-plan_team.Rmd", eval = T}
-
-```
-
-
