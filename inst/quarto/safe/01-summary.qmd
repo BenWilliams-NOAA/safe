@@ -1,0 +1,29 @@
+# Executive Summary
+
+## Summary of Changes in Assessment Inputs
+
+<!---
+List of changes (if any) in the input data, including estimated catches assumed for the current year and projected catches for current year + 1 and current year + 2.
+
+List of changes (if any) in the assessment methodology. 
+**This is one of the most important sections of the SAFE report**. 
+Common mistakes in this section include: 1) listing something that *has not* changed, and 2) not listing something that *has* changed.
+--->
+
+List of changes in input data for **`r params$species`**:
+
+* Estimated catch for `r year`: `r c1` t.
+* Projected catch for `r year + 1`: `r c2` t.
+* Projected catch for `r year + 2`: `r c3` t.
+
+## Summary of Results
+
+{{< include 01a-main_table.qmd >}}
+
+### Area Apportionment
+<!---
+Text table of area apportionments (if any) for the recommended one- and two-year ahead BRDs, ABCs and OFLs, with a brief description of the apportionment methodology.
+--->
+
+{{< include 01b-apportionment.qmd >}}
+

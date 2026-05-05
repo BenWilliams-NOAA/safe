@@ -1,0 +1,114 @@
+---
+author:
+  - name: Benjamin C. Williams
+  - name: Peter-John F. Hulson
+date: November 2026
+
+params: 
+  chapter: 10
+  species: "northern rockfish"
+  species_complex: "no"
+  area: "Gulf of Alaska"
+  tier: 3
+
+format:
+  html:
+    toc: false
+    number-sections: false
+    css: "styles.css"
+  pdf:
+    template-partials:
+      - _extensions/safe/before-body.tex
+      - _extensions/safe/_titlepage.tex
+    include-in-header: _extensions/safe/in-header.tex
+    keep-tex: true # Good for debugging
+  docx:
+    reference-doc: "_extensions/safe/template.docx"
+fontsize: 11pt
+mainfont: "Times New Roman"
+geometry:
+  - top=1in
+  - bottom=1in
+  - left=1in
+  - right=1in 
+bibliography: "safe_bibby.bib"
+csl: "fishfish.csl"
+title: "`r paste0(params$chapter, '. Assessment of the ', tools::toTitleCase(params$species), if(params$species_complex == 'no') ' Stock' else ' Stock Complex', ' in the ', params$area)`"
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.pos = "!h")
+library(safe)
+
+# force all  flextables to use the correct font
+flextable::set_flextable_defaults(font.family = "Times New Roman")
+```
+
+This report may be cited as:
+Authors, Year. Title. North Pacific Fishery Management Council, Anchorage, AK. Available from https://www.npfmc.org/library/safe-reports/
+
+::: {.content-visible when-format="pdf"}
+\textit{This information is distributed solely for the purpose of pre-dissemination peer review under applicable information quality guidelines. It has not been formally disseminated by the National Marine Fisheries Service and should not be construed to represent any agency determination or policy.}
+:::
+
+::: {.content-visible unless-format="pdf"}
+*This information is distributed solely for the purpose of pre-dissemination peer review under applicable information quality guidelines. It has not been formally disseminated by the National Marine Fisheries Service and should not be construed to represent any agency determination or policy.*
+:::
+
+
+```{r}
+#| label: load
+library(safe)
+# globals
+species = params$species
+year = 2022
+date = 'October 22, 2022'
+model = "base"
+end_proj = year + 15
+best_f = 0.0641 # from the best_f function in groundfishr package
+ofl = 8000 # placeholder while i figure things out
+
+# todo: read from proj output
+c1 = 2842 # estimated catch in current year
+c2 = 3489 # proj catch year + 1
+c3 = 2884 # proj catch year + 2
+# todo: build a function/switch to auto run the tier(a/b) - also for overfishing/overfished
+```
+{{< pagebreak >}}
+
+{{< include 01-summary.qmd >}}
+
+{{< include 02-responses.qmd >}}
+
+{{< include 03-intro.qmd >}}
+
+{{< include 04-fishery.qmd >}}
+
+{{< include 05-data.qmd >}}
+
+{{< include 06-model.qmd >}}
+
+{{< include 07-results.qmd >}}
+
+{{< include 08-abc.qmd >}}
+
+{{< include 09-ecosystem.qmd >}}
+
+{{< include 10-gaps.qmd >}}
+
+{{< pagebreak >}}
+
+# References
+
+::: {#refs}
+:::
+
+{{< include 11-tables.qmd >}}
+
+{{< include 12-figures.qmd >}}
+
+{{< include 13-append_a.qmd >}}
+
+{{< include 14-append_vast.qmd >}}

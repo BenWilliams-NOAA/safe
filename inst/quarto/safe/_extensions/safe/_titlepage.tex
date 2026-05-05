@@ -1,0 +1,40 @@
+% This is a combination of Pandoc templating and LaTeX
+% Pandoc templating https://pandoc.org/MANUAL.html#templates
+% See the README for help
+
+$if(titlepage-geometry)$
+\newgeometry{$for(titlepage-geometry)$$titlepage-geometry$$sep$,$endfor$}
+$endif$
+\begin{minipage}[b][\textheight][s]{\textwidth}
+\raggedright
+
+% Title
+$if(title)$
+{\huge\bfseries $title$}\par\vspace{1.5\baselineskip}
+$endif$
+
+% Date
+$if(date)$
+{\large $date$}\par\vspace{1.5\baselineskip}
+$endif$
+
+% Authors
+$if(by-author/allbutlast)$
+$for(by-author/allbutlast)$
+ {\large $by-author.name.literal$}$sep$, 
+$endfor$
+$for(by-author/last)$
+ { and \large $by-author.name.literal$}
+$endfor$
+$else$
+$for(by-author/last)$
+{\large $by-author.name.literal$}
+$endfor$
+$endif$
+
+\vspace{2\baselineskip}
+
+\end{minipage}
+$if(titlepage-geometry)$
+\restoregeometry
+$endif$

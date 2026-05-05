@@ -1,0 +1,18 @@
+# Tables
+
+```{r tab1}
+knitr::kable(data.frame(year = 1999:2000,
+                 catch = 1:2), 
+             caption = "Summary of key management measures and the time series of catch, ABC, and TAC for northern rockfish in the Gulf of Alaska",
+             booktabs = TRUE)
+```
+
+\pagebreak
+
+```{r tab2}
+flextable::regulartable(data.frame(year = 1999:2000,
+                 catch = 1:2)) %>%  
+      flextable::set_caption("Commercial catch (t) and management action for northern rockfish in the Gulf of Alaska, 1961-present. The *Description of the catch time series* Section describes procedures use to estimate catch during 1961-1993. Ctach estimates for 1993-2019 are from NMFS Observer Program and Alaska Regional Office updated through October XX, 2020.")
+```
+
+\pagebreak

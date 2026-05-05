@@ -1,0 +1,10 @@
+title: Safe
+author: Ben Williams
+version: 1.0.0
+quarto-required: ">=1.9.0"
+contributes:
+  formats:
+    html:
+      toc: true
+      theme: [yeti, custom.scss]
+

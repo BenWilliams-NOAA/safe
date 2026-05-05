@@ -1,0 +1,14 @@
+# Figures
+
+```{r, fig.cap = "pressure"}
+plot(pressure)
+```
+
+```{r fig1, fig.cap="Estimated and observed long-term and recent commercial catch of northern rockfish in the Gulf of Alaska.", eval = F}
+
+knitr::include_graphics(here::here(year, model, "figs", "catch.png"))
+```
+
+```{r fig2, fig.cap="Fishery length compositions for GOA northern rockfish. Observed = bars, lines are the predicted lengths from author recommended model.", eval = F}
+
+knitr::include_graphics(here::here(year, model, "figs", "fishery_length_comp.png"))

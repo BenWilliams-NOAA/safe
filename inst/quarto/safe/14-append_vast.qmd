@@ -1,0 +1,46 @@
+---
+csl: "fishfish.csl"
+---
+
+# Appendix 10b: Model-based estimation of abundance 
+
+For model-based indices in the Gulf of Alaska (GOA), we fitted observations of numerical abundance or biomass per unit area (where the use of abundance or biomass varied by stock at the request of assessors) from all satisfactory hauls. 
+We used a spatiotemporal Poisson-link delta-model (Thorson 2018) involving two linear predictors, and a gamma distribution to model positive catch rates (whereas a lognormal distribution was implemented for the positive component of northern and dusky rockfish models). 
+We predicted population density across the entire GOA in each year, using AFSC GAP-approved prediction grids covering depths shallower than 700m. 
+Spatial and spatiotemporal fields were estimated using a spatial mesh including 750 “knots” whose locations were determined using a K-means algorithm to place knots evenly over space, in proportion to the dimensions of the prediction grid. 
+We estimated geometric anisotropy (how spatial autocorrelation declines with differing rates over distance in some cardinal directions than others) and included a spatial and spatiotemporal term for both linear predictors. We specified that the spatiotemporal fields were independent among years. 
+We did not include any temporal correlation for intercepts, which we treated as fixed effects for each linear predictor and year. 
+Finally, we used epsilon bias-correction to correct for retransformation bias (Thorson and Kristensen 2016). 
+All models were fitted in the sdmTMB R package (https://pbs-assess.github.io/sdmTMB; Anderson et al., 2022). 
+
+We checked model fits for convergence by confirming that the derivative of the marginal likelihood with respect to each fixed effect was sufficiently small (less than ~ 0.001) and that the Hessian matrix was positive definite, along with other model checks produced by the function sdmTMB::sanity(). 
+We then checked goodness of model fit by computing Dunn-Smyth randomized quantile residuals (Dunn and Smyth 1996) and visualizing these using a quantile-quantile plot within the DHARMa R package (Hartig 2021). 
+We also evaluated the distribution of these residuals over space in each year, and inspected them for evidence of residual spatiotemporal patterns. 
+All code used to compute these indices are available in the model-based-indices GitHub repository (https://github.com/afsc-gap-products/model-based-indices). 
+Design-based estimates of bottom trawl products were calculated using code in the gapindex R package (https://github.com/afsc-gap-products/gapindex).
+
+## References {-}
+Anderson, S.C., Ward, E.J., English, P.A. and Barnett, L.A.K., 2022. sdmTMB: an R package for fast, flexible, and user-friendly generalized linear mixed effects models with spatial and spatiotemporal random fields. BioRxiv, pp.2022-03.
+
+Dunn, K.P., and Smyth, G.K., 1996. Randomized quantile residuals. Journal of Computational and Graphical Statistics 5, 1-10.
+Hartig, F., 2021. DHARMa: Residual Diagnostics for Hierarchical (Multi-Level / Mixed) Regression Models. R package version 0.4.0. http://florianhartig.github.io/DHARMa/
+
+Thorson, J.T., 2018. Three problems with the conventional delta-model for biomass sampling data, and a computationally efficient alternative. Canadian Journal of Fisheries and Aquatic Sciences. 75(9): 1369-1382. https://doi.org/10.1139/cjfas-2017-0266
+
+Thorson, J.T., and Kristensen, K., 2016. Implementing a generic method for bias correction in statistical models using random effects, with spatial and population dynamics examples. Fisheries Research, 175, pp.66-74.
+
+## Initial settings used in 2025
+ Initial model settings used to generate model-based indices. Minimum standard of versions of software and key dependencies (i.e., using these versions or later):   `R v4.0.2`: `sdmTMB v0.6.0`, `tinyVAST v0.7.0-alpha`, `TMB v1.7.22`, `Matrix v1.4-0`, `DHARMa v0.4.5`; or,  `MRAN v4.0.2`: `sdmTMB v0.5.0`,` tinyVAST v0.1.0-alpha`, `TMB v1.7.16`, `Matrix v1.2-18`, `DHARMa v0.3.2`.  
+ 
+| Initial model setting | Suggested alternative setting (if needed) |
+| :--- | :--- |
+| knots in mesh = 750 for abundance index; knots in mesh = 50 for age comps | 250-500 for abundance index as needed for computational efficiency (or for modeling only a subarea of any region) |
+| Poisson-link delta-gamma observation model: `family = delta_gamma(type = "poisson-link")`* | Option 2: Tweedie; option 3: delta-lognormal; option 4: delta-generalized gamma |
+| Use mesh from prior model, which creates the mesh by assigning knot locations based on the prediction grid | Construct mesh based on locations of samples if necessary to aid convergence or for comparison to a previous model fit |
+| `bias_correct = TRUE` | NA |
+| Include spatial random field: `spatial = "on"` | `spatial = "off"` if necessary to aid convergence |
+| Model spatiotemporal random fields as independent in time: `spatiotemporal = "iid"` | Model spatiotemporal components (epsilon) as a first-order autoregressive process `"ar1"` (required for extremely unbalanced data, as when combining EBS and NBS regions) or `"off"` (if necessary to aid convergence) |
+| Spatial autocorrelation is assumed to be anisotropic for abundance index (but not for age comps): `anisotropy = TRUE` | `anisotropy = FALSE` (assuming isotropic spatial autocorrelation) if necessary to aid convergence in abundance index models; for age comps isotropic spatial autocorrelation is the only option implemented in tinyVAST |
+| No vessel effects, catchability or density covariates | May include covariates in cases where their incorporation has been previously demonstrated to improve model fit (e.g., a spatially varying response to cold-pool extent when generating abundance indices combining the EBS and NBS); in these cases, covariates will be centered and scaled prior to fitting: `spatial_varying = ~ covariate_name` |
+
+* Noting that for species with 0 or 100% encounters in any year we must fix a parameter to set the probability of occurrence in the binomial model component to be close to 0 or 1.*
